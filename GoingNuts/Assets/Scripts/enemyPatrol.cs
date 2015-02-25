@@ -21,6 +21,7 @@ public class enemyPatrol : MonoBehaviour {
 		if(transform.position == patrol[Currentpoint].position)
 		{
 			Currentpoint++;
+			transform.Rotate(0, -90, 0);
 		}
 		
 		if(Currentpoint >= patrol.Length)
