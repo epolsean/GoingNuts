@@ -5,6 +5,7 @@ public class enemyRotate : MonoBehaviour {
 
 	public GameObject WarningText;
 	public GameObject rotatePoint;
+	public int speed;
 	
 	// Use this for initialization
 	void Start () {
@@ -13,7 +14,7 @@ public class enemyRotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.RotateAround(rotatePoint.transform.position, rotatePoint.transform.up, 10 * Time.deltaTime);
+		transform.RotateAround(rotatePoint.transform.position, rotatePoint.transform.up, speed * Time.deltaTime);
 	}
 	
 	void OnTriggerEnter(Collider other)
