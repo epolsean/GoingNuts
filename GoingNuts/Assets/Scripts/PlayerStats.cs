@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour {
     public float totalPickups;
     public GameObject PickupText;
     public GameObject TimerText;
+    public bool isSafe;
 
     float startTime;
     float totalTime;
