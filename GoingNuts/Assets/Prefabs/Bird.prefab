@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 440284}
   - 33: {fileID: 3340290}
-  - 135: {fileID: 13540290}
   - 23: {fileID: 2340290}
   - 114: {fileID: 11440290}
+  - 136: {fileID: 13620544}
   m_Layer: 0
   m_Name: EnemyZone
   m_TagString: Untagged
@@ -27,7 +27,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440286}
-  - 114: {fileID: 11440286}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -75,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 140284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 8.61053276, y: 8.61053371, z: 8.61053371}
   m_Children: []
   m_Father: {fileID: 440288}
   m_RootOrder: 0
@@ -86,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 5.5965662, y: 4.80000019, z: -8.26140499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440290}
@@ -144,7 +143,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140284}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &11440284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,19 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningText: {fileID: 0}
   rotatePoint: {fileID: 140286}
-  speed: 4
---- !u!114 &11440286
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22defaf9e370df44a769d02656b8fcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WarningText: {fileID: 0}
   speed: 4
 --- !u!114 &11440288
 MonoBehaviour:
@@ -202,18 +188,19 @@ MonoBehaviour:
   screenFade2: {fileID: 0}
   screenFade3: {fileID: 0}
   player: {fileID: 0}
---- !u!135 &13540290
-SphereCollider:
+--- !u!136 &13620544
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140284}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: .500000119
+  m_Height: 2.02640224
+  m_Direction: 1
+  m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
