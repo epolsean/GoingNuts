@@ -45,7 +45,7 @@ public class EnemyScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && (this.gameObject.name == "EnemyZone" && other.gameObject.GetComponent<PlayerStats>().isSafe == false))
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
             other.gameObject.transform.position = spawnPoint.transform.position;
             other.gameObject.transform.rotation = spawnPoint.transform.rotation;
@@ -56,7 +56,7 @@ public class EnemyScript : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && (this.gameObject.name == "EnemyZone" && other.gameObject.GetComponent<PlayerStats>().isSafe == false))
+        if (other.gameObject.tag == "Player" &&other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
             other.gameObject.transform.position = spawnPoint.transform.position;
             other.gameObject.transform.rotation = spawnPoint.transform.rotation;

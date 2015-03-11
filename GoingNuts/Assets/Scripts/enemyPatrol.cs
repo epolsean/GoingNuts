@@ -7,21 +7,39 @@ public class enemyPatrol : MonoBehaviour {
 	private int Currentpoint;
 	public float moveSpeed;
 	public float rotateSpeed = 2.0f;
+    public bool stops;
+    public float pauseTime;
 	private bool rotating;
+
+    float startTime;
 	
 	// Use this for initialization
 	void Start () 
 	{
 		transform.position = patrol[0].position;
 		Currentpoint = 0;
+        startTime = pauseTime;
 	}
 	
 	void Update() 
 	{
-		if(transform.position == patrol[Currentpoint].position)
+        Vector3 offset = transform.position - patrol[Currentpoint].position;
+		if(offset.magnitude <=0.01)
 		{
-			Currentpoint++;
-			transform.Rotate(0, -90, 0);
+            if (stops)
+            {
+                if (startTime <= 0)
+                {
+                    Currentpoint++;
+                    startTime = pauseTime;
+                }
+                startTime -= Time.deltaTime;
+            }
+            else
+            {
+                Currentpoint++;
+                transform.Rotate(0, -90, 0);
+            }
 		}
 		
 		if(Currentpoint >= patrol.Length)
@@ -29,8 +47,9 @@ public class enemyPatrol : MonoBehaviour {
 			Currentpoint = 0;
 		}
 		
-		transform.position = Vector3.MoveTowards (transform.position, patrol [Currentpoint].position, moveSpeed * Time.deltaTime);  
-		StartCoroutine(TurnTowards(-transform.forward));
+		transform.position = Vector3.MoveTowards (transform.position, patrol [Currentpoint].position, moveSpeed * Time.deltaTime);
+        if(!stops)
+		    StartCoroutine(TurnTowards(-transform.forward));
 	}
 	
 	IEnumerator TurnTowards(Vector3 lookAtTarget) 

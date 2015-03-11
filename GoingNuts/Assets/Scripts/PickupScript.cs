@@ -48,10 +48,6 @@ public class PickupScript : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
 			other.gameObject.GetComponent<PlayerStats>().totalPickups++;
-
-			ZoneFinish zoneFinish = transform.parent.gameObject.GetComponent<ZoneFinish>();
-			zoneFinish.incrementCount();
-
             Destroy(this.gameObject);
         }
     }
