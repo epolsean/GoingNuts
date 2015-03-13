@@ -1,45 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour {
 
     public GameObject spawnPoint;
-	public ScreenFader screenFade1;
-	public ScreenFader screenFade2;
-	public ScreenFader screenFade3;
-	public OVRPlayerController player;
+    public Image screenFade1;
+    public Image screenFade2;
 
+    GameObject player;
+    float fadeSpeed = 1;
+    float startTime;
 	private bool beginFade = false;
 	private bool stopFade = false;
 
-	// Use this for initialization
-	void Start () {
-	}
+    void Start ()
+    {
+        screenFade1.enabled = false;
+        screenFade2.enabled = false;
+    }
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(beginFade)
+		if(beginFade && Time.time - startTime >= 1)
 		{
-			screenFade1.fadeToBlack();
-			screenFade2.fadeToBlack();
-			screenFade3.fadeToBlack();
-
-			// Stop the player's movement while they are respawning
-			// I didn't have a chance to test this with the rift on, so if it causes problems then remove this.
-			player.Stop ();
+			FadeToClear();
 		}
-		if (screenFade1.alpha >= .8 && !stopFade) 
+        if ((screenFade1.color.a <= .7 || screenFade2.color.a <= .7) && (screenFade1.color.a > .4 || screenFade2.color.a > .4))
+        {
+            fadeSpeed = 2;
+        }
+        else if ((screenFade1.color.a <= .4 || screenFade2.color.a <= .4) && (screenFade1.color.a > .1 || screenFade2.color.a > .1))
+        {
+            fadeSpeed = 3;
+        }
+        else if (screenFade1.color.a <= .1 || screenFade2.color.a <= .1) 
 		{
-			stopFade = true;
-		}
-		if (stopFade && screenFade1.alpha <= .1) 
-		{
-			stopFade = false;
-			screenFade1.endFade();
-			screenFade2.endFade();
-			screenFade3.endFade();
-			beginFade = false;
+            screenFade1.enabled = false;
+            screenFade1.color = Color.black;
+            screenFade2.enabled = false;
+            screenFade2.color = Color.black;
+            player.gameObject.GetComponent<CharacterController>().enabled = true;
+            fadeSpeed = 1;
+            beginFade = false;
 		}
 	}
 
@@ -47,9 +51,13 @@ public class EnemyScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
-            other.gameObject.transform.position = spawnPoint.transform.position;
-            other.gameObject.transform.rotation = spawnPoint.transform.rotation;
-
+            player = other.gameObject;
+            player.transform.position = spawnPoint.transform.position;
+            player.transform.rotation = spawnPoint.transform.rotation;
+            player.GetComponent<CharacterController>().enabled = false;
+            startTime = Time.time;
+            screenFade1.enabled = true;
+            screenFade2.enabled = true;
 			beginFade = true;
         }
     }
@@ -58,10 +66,21 @@ public class EnemyScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player" &&other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
-            other.gameObject.transform.position = spawnPoint.transform.position;
-            other.gameObject.transform.rotation = spawnPoint.transform.rotation;
-
+            player = other.gameObject;
+            player.transform.position = spawnPoint.transform.position;
+            player.transform.rotation = spawnPoint.transform.rotation;
+            player.GetComponent<CharacterController>().enabled = false;
+            startTime = Time.time;
+            screenFade1.enabled = true;
+            screenFade2.enabled = true;
 			beginFade = true;
         }
+    }
+
+    void FadeToClear ()
+    {
+        // Lerp the colour of the texture between itself and transparent.
+        screenFade1.color = Color.Lerp(screenFade1.color, Color.clear, fadeSpeed * Time.fixedDeltaTime);
+        screenFade2.color = Color.Lerp(screenFade2.color, Color.clear, fadeSpeed * Time.fixedDeltaTime);
     }
 }
