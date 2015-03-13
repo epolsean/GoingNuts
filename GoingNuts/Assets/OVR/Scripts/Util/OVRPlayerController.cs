@@ -305,7 +305,7 @@ public class OVRPlayerController : MonoBehaviour
 		if (!Controller.isGrounded)
 			return false;
 
-		MoveThrottle += new Vector3(0, JumpForce, 0);
+        MoveThrottle.y += JumpForce * SimulationRate * Time.deltaTime;
 
 		return true;
 	}

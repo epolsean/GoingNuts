@@ -404,7 +404,7 @@ public class OVRMainMenu : MonoBehaviour
 		// Crosshair functionality
 		Crosshair.UpdateCrosshair();
 
-#if USE_NEW_GUI
+/*#if USE_NEW_GUI
         if (ShowVRVars && RiftPresentTimeout <= 0.0f)
         {
             NewGUIObject.SetActive(true);
@@ -415,7 +415,7 @@ public class OVRMainMenu : MonoBehaviour
         {
             NewGUIObject.SetActive(false);
         }
-#endif
+#endif*/
      
         // Toggle Fullscreen
 		if(Input.GetKeyDown(KeyCode.F11))
@@ -836,13 +836,17 @@ public class OVRMainMenu : MonoBehaviour
         bool SpaceHit = Input.GetKey(MenuKey);
         if ((OldSpaceHit == false) && (SpaceHit == true))
         {
+            PlayerController.Jump();
+
             if (ShowVRVars == true)
             {
-                ShowVRVars = false;
+                //ShowVRVars = false;
             }
             else
             {
-                ShowVRVars = true;
+                //ShowVRVars = true;
+
+
 #if USE_NEW_GUI
                 OVRUGUI.InitUIComponent = ShowVRVars;
 #endif
