@@ -49,6 +49,9 @@ public class EnemyScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+		if (other.gameObject.tag == "Player") {
+						print ("OnTriggerEnter");
+				}
         if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
             player = other.gameObject;
@@ -64,7 +67,10 @@ public class EnemyScript : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" &&other.gameObject.GetComponent<PlayerStats>().isSafe == false)
+		if (other.gameObject.tag == "Player") {
+						print ("OnTriggerStay");
+				}
+        if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
             player = other.gameObject;
             player.transform.position = spawnPoint.transform.position;

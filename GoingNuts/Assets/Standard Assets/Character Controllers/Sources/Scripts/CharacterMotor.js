@@ -332,6 +332,7 @@ function FixedUpdate () {
 }
 
 function Update () {
+	transform.position += Vector3.zero;
 	if (!useFixedUpdate)
 		UpdateFunction();
 }
