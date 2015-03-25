@@ -5,7 +5,7 @@ public class MoveSpawnScript : MonoBehaviour {
 
     public Transform[] SpawnPoints;
     public int CurrentSpawnPoint;
-    public int setSpawn;
+    int setSpawn;
 
 	// Use this for initialization
 	void Start () {
