@@ -23,6 +23,7 @@ public class enemyPatrol : MonoBehaviour {
 	
 	void Update() 
 	{
+		Quaternion newRotation;
         Vector3 offset = transform.position - patrol[Currentpoint].position;
 		if(offset.magnitude <=0.01)
 		{
@@ -35,10 +36,12 @@ public class enemyPatrol : MonoBehaviour {
                 }
                 startTime -= Time.deltaTime;
             }
-            else
+            else// if (!rotating)
             {
+				//newRotation = Quaternion.LookRotation(lookAtTarget - transform.position);
                 Currentpoint++;
-                transform.Rotate(0, -90, 0);
+				//rotating = true;
+                //transform.Rotate(0, -90, 0);
             }
 		}
 		
@@ -46,8 +49,28 @@ public class enemyPatrol : MonoBehaviour {
 		{
 			Currentpoint = 0;
 		}
-		
-		transform.position = Vector3.MoveTowards (transform.position, patrol [Currentpoint].position, moveSpeed * Time.deltaTime);
+
+		if(Currentpoint != 0)
+		{
+			newRotation = Quaternion.LookRotation(patrol[Currentpoint - 1].transform.forward);
+		}
+		else
+		{
+			newRotation = Quaternion.LookRotation(patrol[patrol.Length - 1].transform.forward);
+		}
+		/*if (Vector3.Angle(transform.rotation, newRotation) < .1)
+		{
+			rotating = false;
+		}*/
+	
+
+
+
+
+		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 7);
+
+
+		transform.position = Vector3.MoveTowards (transform.position, patrol[Currentpoint].position, moveSpeed * Time.deltaTime);
         if(!stops)
 		    StartCoroutine(TurnTowards(-transform.forward));
 	}
