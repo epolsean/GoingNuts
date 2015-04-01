@@ -24,9 +24,7 @@ public class PlatformScript : MonoBehaviour {
 
             }
             //player.transform.parent = this.gameObject.transform;
-			print (player.transform.position);
         }
-		print (this.gameObject.transform.position - lastPos);
         lastPos = this.gameObject.transform.position;
 	}
 
