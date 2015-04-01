@@ -21,9 +21,12 @@ public class PlatformScript : MonoBehaviour {
             if (lastPos != this.gameObject.transform.position)
             {
                 player.transform.position += (this.gameObject.transform.position - lastPos);
+
             }
             //player.transform.parent = this.gameObject.transform;
+			print (player.transform.position);
         }
+		print (this.gameObject.transform.position - lastPos);
         lastPos = this.gameObject.transform.position;
 	}
 
