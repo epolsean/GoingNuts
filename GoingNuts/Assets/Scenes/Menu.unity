@@ -14298,8 +14298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83644e8900809614cbf5e581df3eb45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPickups: 200
-  totalTime: 450
+  totalPickups: 300
+  totalTime: 750
 --- !u!1 &1519873100
 GameObject:
   m_ObjectHideFlags: 0
