@@ -5,6 +5,9 @@ using System.Collections;
 public class EndGameScript : MonoBehaviour {
 
     public GameObject prompt;
+    public GameObject player;
+    float pickups;
+    float seconds;
     bool asked;
 
 	// Use this for initialization
@@ -24,6 +27,10 @@ public class EndGameScript : MonoBehaviour {
         }
         if (asked == true && Input.GetKeyUp(KeyCode.Return))
         {
+            pickups = player.GetComponent<PlayerStats>().totalPickups;
+            seconds = player.GetComponent<PlayerStats>().totalTime;
+            PlayerPrefs.SetFloat("Total_Pickups", pickups);
+            PlayerPrefs.SetFloat("Total_Time", seconds);
             GoToScript goTo = new GoToScript();
             goTo.score();
         }

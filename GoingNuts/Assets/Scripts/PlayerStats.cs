@@ -4,7 +4,12 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
 
+    public bool isSafe;
+    public bool OcCamOn;
+
     public float totalPickups;
+    public float totalTime;
+
     public GameObject PickupText1;
     public GameObject TimerText1;
     public GameObject PickupText2;
@@ -12,11 +17,8 @@ public class PlayerStats : MonoBehaviour {
     public GameObject OcCam;
     public GameObject OcCanvas;
     public GameObject NormConvas;
-    public bool isSafe;
-    public bool OcCamOn;
     
     float startTime;
-    float totalTime;
     int seconds;
     int minutes;
 
@@ -55,12 +57,17 @@ public class PlayerStats : MonoBehaviour {
             TimerText1.GetComponent<Text>().text = "0" + minutes + ":0" + seconds;
             TimerText2.GetComponent<Text>().text = "0" + minutes + ":0" + seconds;
         }
-        else if (seconds > 10 && minutes < 10)
+        else if (seconds >= 10 && minutes < 10)
         {
             TimerText1.GetComponent<Text>().text = "0" + minutes + ":" + seconds;
             TimerText2.GetComponent<Text>().text = "0" + minutes + ":" + seconds;
         }
-        else if (seconds > 10 && minutes > 10)
+        else if (seconds < 10 && minutes >= 10)
+        {
+            TimerText1.GetComponent<Text>().text = minutes + ":0" + seconds;
+            TimerText2.GetComponent<Text>().text = minutes + ":0" + seconds;
+        }
+        else if (seconds >= 10 && minutes >= 10)
         {
             TimerText1.GetComponent<Text>().text = minutes + ":" + seconds;
             TimerText2.GetComponent<Text>().text = minutes + ":" + seconds;

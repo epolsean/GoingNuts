@@ -44,7 +44,7 @@ public class HighscoresScript : MonoBehaviour {
         }
     }
 
-    void ReadScores()
+    public void ReadScores()
     {
         string Path = "Assets/Files/" + FileName + ".txt";
         readTextFile(Path);
@@ -77,7 +77,7 @@ public class HighscoresScript : MonoBehaviour {
         }
     }
 
-    void UpdateOrder()
+    public void UpdateOrder()
     {
         int[] temp1 = new int[10];
         string[] temp2 = new string[10];
@@ -114,7 +114,7 @@ public class HighscoresScript : MonoBehaviour {
         }
     }
 
-    void UpdateScores()
+    public void UpdateScores()
     {
         string Path = "Assets/Files/" + FileName + ".txt";
         scores = "";
@@ -127,7 +127,7 @@ public class HighscoresScript : MonoBehaviour {
         System.IO.File.WriteAllText(Path, scores);
     }
 
-    void readTextFile(string file_path)
+    public void readTextFile(string file_path)
     {
         StreamReader inp_stm = new StreamReader(file_path);
 
@@ -140,7 +140,7 @@ public class HighscoresScript : MonoBehaviour {
         inp_stm.Close();
     }
 
-    void AddScore(string Name, int Score)
+    public void AddScore(string Name, int Score)
     {
         string[] temp = entries[9];
         int min = int.Parse(temp[1]);
@@ -155,5 +155,6 @@ public class HighscoresScript : MonoBehaviour {
         {
             print("Name: " + nameArray[i] + " / Score: " + scoreArray[i]);
         }
+        wrote = false;
     }
 }
