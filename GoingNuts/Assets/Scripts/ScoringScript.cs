@@ -16,10 +16,10 @@ public class ScoringScript : MonoBehaviour {
     public Text Number3;
     public Text Number4;
 
-    bool oneDone;
-    bool twoDone;
-    bool threeDone;
-    bool fourDone;
+    public bool oneDone;
+    public bool twoDone;
+    public bool threeDone;
+    public bool fourDone;
     bool newHighscore;
     bool scoreAdded;
 
@@ -143,7 +143,7 @@ public class ScoringScript : MonoBehaviour {
                 intCount += 1;
             }
 
-            if (totalTime - intCount == -1)
+            if (totalTime - intCount <= -1)
             {
                 twoDone = true;
                 intCount = 0;
