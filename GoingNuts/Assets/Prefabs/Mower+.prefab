@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 419156}
   - 33: {fileID: 3319196}
   - 23: {fileID: 2319196}
+  - 82: {fileID: 8224334}
   m_Layer: 0
   m_Name: group2_pCylinder6
   m_TagString: Untagged
@@ -432,8 +433,8 @@ Transform:
   - {fileID: 419156}
   - {fileID: 419194}
   - {fileID: 419178}
-  - {fileID: 419198}
   - {fileID: 419200}
+  - {fileID: 419198}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &419166
@@ -641,12 +642,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119198}
-  m_LocalRotation: {x: 0, y: -.766044438, z: 0, w: .642787635}
+  m_LocalRotation: {x: .0839006305, y: .759490848, z: .0999888703, w: -.637288511}
   m_LocalPosition: {x: -5.5, y: -.800000012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 419164}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &419200
 Transform:
   m_ObjectHideFlags: 1
@@ -658,7 +659,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 419164}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!23 &2319196
 Renderer:
   m_ObjectHideFlags: 1
@@ -796,6 +797,64 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 1
   m_Mesh: {fileID: 4300002, guid: 1883182ceb9e88b47b38dac39ee0b1af, type: 3}
+--- !u!82 &8224334
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119156}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 0c9b029f4b438cd4ea68fbeba1326fee, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 20
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9519200
 Animator:
   serializedVersion: 3
@@ -891,11 +950,11 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1120,7 +1179,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 1
-    gravityModifier: 3
+    gravityModifier: 8
     inheritVelocity: 0
     maxNumParticles: 5000
   ShapeModule:
@@ -1483,7 +1542,7 @@ ParticleSystem:
   ForceModule:
     enabled: 1
     x:
-      scalar: -30
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1893,16 +1952,16 @@ ParticleSystem:
       minMaxState: 1
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
-    type: 0
+    enabled: 1
+    type: 1
     plane0: {fileID: 0}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
     plane3: {fileID: 0}
     plane4: {fileID: 0}
     plane5: {fileID: 0}
-    dampen: 0
-    bounce: 1
+    dampen: .300000012
+    bounce: .800000012
     energyLossOnCollision: 0
     minKillSpeed: 0
     particleRadius: .00999999978
