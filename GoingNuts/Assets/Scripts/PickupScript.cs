@@ -9,6 +9,7 @@ public class PickupScript : MonoBehaviour {
     float startMove;
     float startTime;
     GameObject acorn;
+	private bool destroyThis = false;
 
     void Start()
     {
@@ -29,7 +30,7 @@ public class PickupScript : MonoBehaviour {
     {
         if (Time.time - startTime >= startMove)
         {
-            if (acorn.transform.position == points[Currentpoint].position)
+            if (Mathf.Abs(acorn.transform.position.y - points[Currentpoint].position.y) <= .01)
             {
                 Currentpoint++;
             }
@@ -41,14 +42,21 @@ public class PickupScript : MonoBehaviour {
 
             acorn.transform.position = Vector3.MoveTowards(acorn.transform.position, points[Currentpoint].position, moveSpeed * Time.deltaTime);
         }
+
+		if(destroyThis && !audio.isPlaying)
+	    {
+			Destroy(this.gameObject);
+		}
     }
 
     void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+			audio.Play();
 			other.gameObject.GetComponent<PlayerStats>().totalPickups++;
-            Destroy(this.gameObject);
+			acorn.GetComponentInChildren<MeshRenderer>().enabled = false;
+			destroyThis = true;
         }
     }
 }
