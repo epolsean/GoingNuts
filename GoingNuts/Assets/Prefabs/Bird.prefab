@@ -759,7 +759,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.2000008, y: 10.8999996, z: 9.60000038}
+  m_LocalPosition: {x: -115.300003, y: 10.8999996, z: 11.3000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440290}
@@ -772,7 +772,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21, y: 27.2099991, z: 0}
+  m_LocalPosition: {x: 8.80000019, y: 27.2099991, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 474478}
@@ -787,7 +787,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.19999981, y: 0, z: -12}
+  m_LocalPosition: {x: 8.89999962, y: 0, z: -.600000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440288}
@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningText: {fileID: 0}
   rotatePoint: {fileID: 140286}
-  speed: 10
+  speed: 9
 --- !u!114 &11440288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2352,7 +2352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningText: {fileID: 0}
   rotatePoint: {fileID: 140290}
-  speed: 15
+  speed: 12
 --- !u!114 &11440290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2376,7 +2376,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: .100000001
-  m_FarClipPlane: 100
+  m_FarClipPlane: 50
   m_FieldOfView: 30
   m_AspectRatio: 1
   m_Orthographic: 0
