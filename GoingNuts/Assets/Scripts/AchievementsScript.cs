@@ -199,12 +199,12 @@ public class AchievementsScript : MonoBehaviour
             PlayerPrefs.SetInt("Complete_Game", 1);
         }
 
-        if (pickups == 0 && deaths == 0 && totalTime <= 180 && totalTime != 0)
+        if (pickups == 0 && deaths == 0 && totalTime <= 180)
         {
             PlayerPrefs.SetInt("0_Acorn_Run", 1);
         }
 
-		if (totalTime <= 180 && totalTime != 0)
+        if (totalTime <= 180)
         {
             PlayerPrefs.SetInt("3_Minute_Run", 1);
         }
