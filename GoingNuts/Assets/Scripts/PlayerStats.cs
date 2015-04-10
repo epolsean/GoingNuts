@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour {
 
     public float totalPickups;
     public float totalTime;
+    public float totalDeaths;
 
     public GameObject PickupText1;
     public GameObject TimerText1;

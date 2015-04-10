@@ -8,6 +8,8 @@ public class EndGameScript : MonoBehaviour {
     public GameObject player;
     float pickups;
     float seconds;
+    float deaths;
+
     bool asked;
 
 	// Use this for initialization
@@ -29,8 +31,13 @@ public class EndGameScript : MonoBehaviour {
         {
             pickups = player.GetComponent<PlayerStats>().totalPickups;
             seconds = player.GetComponent<PlayerStats>().totalTime;
+            deaths = player.GetComponent<PlayerStats>().totalDeaths;
             PlayerPrefs.SetFloat("Total_Pickups", pickups);
             PlayerPrefs.SetFloat("Total_Time", seconds);
+            PlayerPrefs.SetFloat("Total_Deaths", deaths);
+            PlayerPrefs.SetInt("Game_Won",1);
+            AchievementsScript achieve = new AchievementsScript();
+            achieve.CheckAchievements();
             GoToScript goTo = new GoToScript();
             goTo.score();
         }
