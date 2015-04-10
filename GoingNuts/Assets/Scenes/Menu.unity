@@ -6026,8 +6026,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1806652072}
   m_RootOrder: 0
-  m_AnchorMin: {x: .100000001, y: .100000001}
-  m_AnchorMax: {x: .899999976, y: .899999976}
+  m_AnchorMin: {x: .0675000027, y: .100000001}
+  m_AnchorMax: {x: .925000012, y: .899999976}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -6056,7 +6056,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Artist:\n - Zachary Chapman\n\nProgrammers:\n - Alec Mackert\n - Erik Polsean"
+  m_Text: "Artist:\n - Zach Chapman\n\nProgrammers:\n - Alec Mackert\n - Erik Polsean"
 --- !u!222 &551357302
 CanvasRenderer:
   m_ObjectHideFlags: 0
