@@ -7,9 +7,8 @@ using System.Collections.Generic;
 
 public class HighscoresScript : MonoBehaviour {
 
-    public string FileName; // This contains the name of the file. Don't add the ".txt"
+    string FileName = "Scores.txt";
     // Assign in inspector
-    private StreamWriter writer; // This is the writer that writes to the file
     public TextAsset asset; // Assign that variable through inspector
     private string assetText;
 
@@ -24,7 +23,7 @@ public class HighscoresScript : MonoBehaviour {
 
     void Start()
     {
-        asset = Resources.Load("Assets/Files/" + FileName + ".txt") as TextAsset;
+        asset = Resources.Load("Goin'_Nutz_Data/Resources/" + FileName) as TextAsset;
         wrote = false;
 
         ReadScores();
@@ -46,7 +45,7 @@ public class HighscoresScript : MonoBehaviour {
 
     public void ReadScores()
     {
-        string Path = "Assets/Files/" + FileName + ".txt";
+        string Path = "Goin'_Nutz_Data/Resources/" + FileName;
         readTextFile(Path);
         scores = text;
 
@@ -116,7 +115,7 @@ public class HighscoresScript : MonoBehaviour {
 
     public void UpdateScores()
     {
-        string Path = "Assets/Files/" + FileName + ".txt";
+        string Path = "Goin'_Nutz_Data/Resources/" + FileName;
         scores = "";
 
         for (int i = 0; i < scoreArray.Length; i++)
@@ -150,10 +149,6 @@ public class HighscoresScript : MonoBehaviour {
             entries[9] = new string[] { Name, Score.ToString() };
             nameArray[9] = Name;
             scoreArray[9] = Score;
-        }
-        for (int i = 0; i < scoreArray.Length; i++)
-        {
-            print("Name: " + nameArray[i] + " / Score: " + scoreArray[i]);
         }
         wrote = false;
     }

@@ -174,22 +174,22 @@ public class AchievementsScript : MonoBehaviour
         deaths = PlayerPrefs.GetFloat("Total_Deaths");
         completedGame = PlayerPrefs.GetInt("Game_Won");
 
-        if (pickups >= 1)
+        if (pickups >= 50)
         {
             PlayerPrefs.SetInt("50_Acorns", 1);
         }
 
-        if (pickups >= 1)
+        if (pickups >= 100)
         {
             PlayerPrefs.SetInt("100_Acorns", 1);
         }
 
-        if (pickups >= 1)
+        if (pickups >= 200)
         {
             PlayerPrefs.SetInt("200_Acorns", 1);
         }
 
-        if (pickups == 1)
+        if (pickups == 300)
         {
             PlayerPrefs.SetInt("All_Acorns", 1);
         }
@@ -199,12 +199,12 @@ public class AchievementsScript : MonoBehaviour
             PlayerPrefs.SetInt("Complete_Game", 1);
         }
 
-        if (pickups == 0 && deaths == 0 && totalTime <= 180)
+        if (pickups == 0 && deaths == 0 && totalTime <= 180 && totalTime != 0)
         {
             PlayerPrefs.SetInt("0_Acorn_Run", 1);
         }
 
-        if (totalTime <= 180)
+        if (totalTime <= 180 && totalTime != 0)
         {
             PlayerPrefs.SetInt("3_Minute_Run", 1);
         }

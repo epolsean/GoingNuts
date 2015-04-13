@@ -4,7 +4,8 @@ using System.Collections;
 
 public class EndGameScript : MonoBehaviour {
 
-    public GameObject prompt;
+    public GameObject prompt1;
+    public GameObject prompt2;
     public GameObject player;
     float pickups;
     float seconds;
@@ -14,18 +15,21 @@ public class EndGameScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        prompt.SetActive(false);
+        prompt1.SetActive(false);
+        prompt2.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (asked == true)
         {
-            prompt.SetActive(true);
+            prompt1.SetActive(true);
+            prompt2.SetActive(true);
         }
         else
         {
-            prompt.SetActive(false);
+            prompt1.SetActive(false);
+            prompt2.SetActive(false);
         }
         if (asked == true && Input.GetKeyUp(KeyCode.Return))
         {
