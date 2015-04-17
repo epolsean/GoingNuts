@@ -10,6 +10,13 @@ public class SafeZoneScript : MonoBehaviour {
             other.gameObject.GetComponent<PlayerStats>().isSafe = true;
         }
     }
+	void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.tag == "Player" && !other.gameObject.GetComponent<PlayerStats>().isSafe)
+		{
+			other.gameObject.GetComponent<PlayerStats>().isSafe = true;
+		}
+	}
 
     void OnTriggerExit(Collider other)
     {
