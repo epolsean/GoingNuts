@@ -633,6 +633,7 @@ GameObject:
   - 33: {fileID: 3374540}
   - 23: {fileID: 2374540}
   - 82: {fileID: 8265340}
+  - 114: {fileID: 11430756}
   m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
@@ -668,6 +669,7 @@ GameObject:
   - 33: {fileID: 3374544}
   - 23: {fileID: 2374544}
   - 82: {fileID: 8265346}
+  - 114: {fileID: 11430754}
   m_Layer: 0
   m_Name: pCylinder2
   m_TagString: Untagged
@@ -703,6 +705,7 @@ GameObject:
   - 33: {fileID: 3374548}
   - 23: {fileID: 2374548}
   - 82: {fileID: 8265342}
+  - 114: {fileID: 11430750}
   m_Layer: 0
   m_Name: pCylinder3
   m_TagString: Untagged
@@ -738,6 +741,7 @@ GameObject:
   - 33: {fileID: 3374552}
   - 23: {fileID: 2374552}
   - 82: {fileID: 8265344}
+  - 114: {fileID: 11430752}
   m_Layer: 0
   m_Name: pCylinder4
   m_TagString: Untagged
@@ -793,7 +797,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.6000004, y: 4.80000019, z: -28.3999996}
+  m_LocalPosition: {x: -68, y: 10.8999996, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440290}
@@ -2384,7 +2388,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -2457,7 +2461,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -2530,7 +2534,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -2603,7 +2607,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -2709,6 +2713,50 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11430750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22895049cb9b5fb428e9ff776f87748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11430752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22895049cb9b5fb428e9ff776f87748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11430754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22895049cb9b5fb428e9ff776f87748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11430756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22895049cb9b5fb428e9ff776f87748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11440284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2755,6 +2803,10 @@ MonoBehaviour:
   Chopper: {fileID: 0}
   screenFade1: {fileID: 0}
   screenFade2: {fileID: 0}
+  player: {fileID: 0}
+  startTime: 0
+  beginFade: 0
+  stopFade: 0
 --- !u!119 &11958536
 Projector:
   m_ObjectHideFlags: 1
