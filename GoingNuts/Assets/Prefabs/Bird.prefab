@@ -123,6 +123,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 474480}
   - 54: {fileID: 5439402}
+  - 65: {fileID: 6556088}
+  - 114: {fileID: 11456088}
   m_Layer: 0
   m_Name: Cage
   m_TagString: Untagged
@@ -2372,6 +2374,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6556088
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .800000012, y: .800000012, z: .800000012}
+  m_Center: {x: 0, y: -.600000024, z: 0}
 --- !u!82 &8265340
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2751,10 +2765,28 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   Joint1: {fileID: 140290}
   Joint2: {fileID: 140288}
-  Cage: {fileID: 0}
-  Chopper: {fileID: 0}
+  Cage: {fileID: 174480}
+  Chopper: {fileID: 174478}
   screenFade1: {fileID: 0}
   screenFade2: {fileID: 0}
+  player: {fileID: 0}
+  startTime: 0
+  beginFade1: 0
+  beginFade2: 0
+  stopFade: 0
+--- !u!114 &11456088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd98cd3cfdf4c134994aa4ae8e91ab78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Chopper: {fileID: 174478}
+  EnemyZone: {fileID: 140284}
 --- !u!119 &11958536
 Projector:
   m_ObjectHideFlags: 1
