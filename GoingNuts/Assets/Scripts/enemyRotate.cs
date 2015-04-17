@@ -3,9 +3,9 @@ using System.Collections;
 
 public class enemyRotate : MonoBehaviour {
 
-	public GameObject WarningText;
 	public GameObject rotatePoint;
 	public int speed;
+    public bool playerFound;
 	
 	// Use this for initialization
 	void Start () {
@@ -14,22 +14,9 @@ public class enemyRotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.RotateAround(rotatePoint.transform.position, rotatePoint.transform.up, speed * Time.deltaTime);
-	}
-	
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.tag == "Player")
-		{
-			WarningText.SetActive(true);
-		}
-	}
-	
-	void OnTriggerExit(Collider other)
-	{
-		if (other.gameObject.tag == "Player")
-		{
-			WarningText.SetActive(false);
-		}
+        if (!playerFound)
+        {
+            transform.RotateAround(rotatePoint.transform.position, rotatePoint.transform.up, speed * Time.deltaTime);
+        }
 	}
 }

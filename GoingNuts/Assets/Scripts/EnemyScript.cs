@@ -5,14 +5,19 @@ using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour {
 
     public GameObject spawnPoint;
+    public GameObject Joint1;
+    public GameObject Joint2;
+    public GameObject Cage;
+    public GameObject Chopper;
     public Image screenFade1;
     public Image screenFade2;
 
-    GameObject player;
+    public GameObject player;
+    public float startTime;
+	public bool beginFade = false;
+    public bool stopFade = false;
+
     float fadeSpeed = 1;
-    float startTime;
-	private bool beginFade = false;
-	private bool stopFade = false;
 
     void Start ()
     {
@@ -51,6 +56,12 @@ public class EnemyScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
+            Animator anim = Chopper.GetComponent<Animator>();
+            anim.SetBool("CageDropped", true);
+            Joint1.GetComponent<enemyRotate>().playerFound = true;
+            Joint2.GetComponent<enemyRotate>().playerFound = true;
+            Cage.GetComponent<Rigidbody>().useGravity = true;
+            /*
             player = other.gameObject;
             player.GetComponent<PlayerStats>().totalDeaths += 1;
             player.transform.position = spawnPoint.transform.position;
@@ -60,6 +71,7 @@ public class EnemyScript : MonoBehaviour {
             screenFade1.enabled = true;
             screenFade2.enabled = true;
 			beginFade = true;
+            */
         }
     }
 
@@ -67,6 +79,12 @@ public class EnemyScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<PlayerStats>().isSafe == false)
         {
+            Animator anim = Chopper.GetComponent<Animator>();
+            anim.SetBool("CageDropped", true);
+            Joint1.GetComponent<enemyRotate>().playerFound = true;
+            Joint2.GetComponent<enemyRotate>().playerFound = true;
+            //Cage.GetComponent<Rigidbody>().useGravity = true;
+            /*
             player = other.gameObject;
             player.GetComponent<PlayerStats>().totalDeaths += 1;
             player.transform.position = spawnPoint.transform.position;
@@ -76,6 +94,16 @@ public class EnemyScript : MonoBehaviour {
             screenFade1.enabled = true;
             screenFade2.enabled = true;
 			beginFade = true;
+            */
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && Joint1.GetComponent<enemyRotate>().playerFound == true && Joint2.GetComponent<enemyRotate>().playerFound == true)
+        {
+            //Joint1.GetComponent<enemyRotate>().playerFound = false;
+            //Joint2.GetComponent<enemyRotate>().playerFound = false;
         }
     }
 

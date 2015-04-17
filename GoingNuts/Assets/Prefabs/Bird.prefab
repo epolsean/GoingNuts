@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &139402
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 439402}
+  - 65: {fileID: 6539402}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &140284
 GameObject:
   m_ObjectHideFlags: 1
@@ -106,6 +122,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474480}
+  - 54: {fileID: 5439402}
   m_Layer: 0
   m_Name: Cage
   m_TagString: Untagged
@@ -121,6 +138,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474482}
+  - 95: {fileID: 9539402}
   m_Layer: 0
   m_Name: Chopper
   m_TagString: Untagged
@@ -744,6 +762,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &439402
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -.980000019, z: 0}
+  m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
+  m_Children: []
+  m_Father: {fileID: 474480}
+  m_RootOrder: 27
 --- !u!4 &440284
 Transform:
   m_ObjectHideFlags: 1
@@ -763,7 +793,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68, y: 10.8999996, z: -25}
+  m_LocalPosition: {x: -16.6000004, y: 4.80000019, z: -28.3999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440290}
@@ -776,7 +806,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.800000012, y: 27.2099991, z: 16.8999996}
+  m_LocalPosition: {x: 0, y: 27.2000008, z: 12.3000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 474478}
@@ -791,7 +821,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .899999976, y: 0, z: 25.1000004}
+  m_LocalPosition: {x: 26.2000008, y: 0, z: 25.1000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440288}
@@ -860,6 +890,7 @@ Transform:
   - {fileID: 474532}
   - {fileID: 474534}
   - {fileID: 474536}
+  - {fileID: 439402}
   m_Father: {fileID: 474478}
   m_RootOrder: 0
 --- !u!4 &474482
@@ -2314,6 +2345,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174554}
   m_Mesh: {fileID: 4300070, guid: 413b34c9d64a872468f95baa959d7153, type: 3}
+--- !u!54 &5439402
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174480}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
+--- !u!65 &6539402
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .00999999978, y: .00999999978, z: .00999999978}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8265340
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2615,6 +2673,21 @@ Animator:
   m_GameObject: {fileID: 174478}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec186820d1867e047b9db33e43aba28a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9539402
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e5fd8ad2bbae58b49b2ab76eba2f6bcf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -2647,9 +2720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba399fe0393ddb41926ddaecfcb7e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WarningText: {fileID: 0}
   rotatePoint: {fileID: 140286}
-  speed: 15
+  speed: 6
+  playerFound: 1
 --- !u!114 &11440288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2661,9 +2734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba399fe0393ddb41926ddaecfcb7e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WarningText: {fileID: 0}
   rotatePoint: {fileID: 140290}
-  speed: 10
+  speed: 9
+  playerFound: 1
 --- !u!114 &11440290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2676,6 +2749,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
+  Joint1: {fileID: 140290}
+  Joint2: {fileID: 140288}
+  Cage: {fileID: 0}
+  Chopper: {fileID: 0}
   screenFade1: {fileID: 0}
   screenFade2: {fileID: 0}
 --- !u!119 &11958536
