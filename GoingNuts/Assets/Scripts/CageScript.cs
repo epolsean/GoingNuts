@@ -13,10 +13,10 @@ public class CageScript : MonoBehaviour {
     Vector3 startPos;
     Vector3 endPos;
     float startTime;
+    bool onlyOnce;
 
 	// Use this for initialization
 	void Start () {
-        startPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -25,24 +25,27 @@ public class CageScript : MonoBehaviour {
         {
             oldPos = transform.position;
         }
-        else
+        else if(onlyOnce == false)
         {
             gameObject.GetComponent<Rigidbody>().useGravity = false;
-            endPos = transform.position;
+            endPos = transform.localPosition;
             startTime = Time.time;
             landed = true;
+            onlyOnce = true;
         }
         if (landed && !captured)
         {
             reset = true;
-            float fracTime = (Time.time - startTime) / 4;
-            transform.position = Vector3.Lerp(endPos, startPos, fracTime);
-            if ((transform.position - startPos).magnitude <= 0.01f)
+            float fracTime = (Time.time - startTime)/4;
+            transform.localPosition = Vector3.Lerp(endPos, new Vector3(endPos.x, 10, endPos.z), fracTime);
+            if (transform.localPosition.y >= 9.99f && transform.localPosition.y < 10.01f)
             {
                 Animator anim = Chopper.GetComponent<Animator>();
                 anim.SetBool("CageDropped", false);
+                EnemyZone.GetComponent<QuadEnemyScript>().Resume();
                 reset = false;
                 landed = false;
+                onlyOnce = false;
             }
         }
 	}

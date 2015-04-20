@@ -4,12 +4,14 @@ using System.Collections;
 public class enemyPatrol : MonoBehaviour {
 
 	public Transform[] patrol;
-	private int Currentpoint;
 	public float moveSpeed;
-	public float rotateSpeed = 2.0f;
-    public bool stops;
+    public float rotateSpeed = 2.0f;
     public float pauseTime;
-	private bool rotating;
+    public bool stops;
+    public bool playerFound;
+
+    int Currentpoint;
+	bool rotating;
 
     float startTime;
 	
@@ -20,60 +22,43 @@ public class enemyPatrol : MonoBehaviour {
 		Currentpoint = 0;
         startTime = pauseTime;
 	}
-	
-	void Update() 
-	{
-		Quaternion newRotation;
-        Vector3 offset = transform.position - patrol[Currentpoint].position;
-		if(offset.magnitude <=0.01)
-		{
-            if (stops)
+
+    void Update()
+    {
+        if (!playerFound)
+        {
+            Quaternion newRotation;
+            Vector3 offset = transform.position - patrol[Currentpoint].position;
+            if (offset.magnitude <= 0.01)
             {
-                if (startTime <= 0)
+                if (stops)
                 {
-                    Currentpoint++;
-                    startTime = pauseTime;
+                    if (startTime <= 0)
+                    {
+                        Currentpoint++;
+                        startTime = pauseTime;
+                    }
+                    startTime -= Time.deltaTime;
                 }
-                startTime -= Time.deltaTime;
+                else
+                    Currentpoint++;
             }
-            else// if (!rotating)
-            {
-				//newRotation = Quaternion.LookRotation(lookAtTarget - transform.position);
-                Currentpoint++;
-				//rotating = true;
-                //transform.Rotate(0, -90, 0);
-            }
-		}
-		
-		if(Currentpoint >= patrol.Length)
-		{
-			Currentpoint = 0;
-		}
 
-		if(Currentpoint != 0)
-		{
-			newRotation = Quaternion.LookRotation(patrol[Currentpoint - 1].transform.forward);
-		}
-		else
-		{
-			newRotation = Quaternion.LookRotation(patrol[patrol.Length - 1].transform.forward);
-		}
-		/*if (Vector3.Angle(transform.rotation, newRotation) < .1)
-		{
-			rotating = false;
-		}*/
-	
+            if (Currentpoint >= patrol.Length)
+                Currentpoint = 0;
 
+            if (Currentpoint != 0)
+                newRotation = Quaternion.LookRotation(patrol[Currentpoint - 1].transform.forward);
+            else
+                newRotation = Quaternion.LookRotation(patrol[patrol.Length - 1].transform.forward);
 
-
-
-		transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 7);
-
-
-		transform.position = Vector3.MoveTowards (transform.position, patrol[Currentpoint].position, moveSpeed * Time.deltaTime);
-        if(!stops)
-		    StartCoroutine(TurnTowards(-transform.forward));
-	}
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 7);
+            transform.position = Vector3.MoveTowards(transform.position, patrol[Currentpoint].position, moveSpeed * Time.deltaTime);
+            
+            if (!stops)
+                StartCoroutine(TurnTowards(-transform.forward));
+        }
+    }
 	
 	IEnumerator TurnTowards(Vector3 lookAtTarget) 
 	{    

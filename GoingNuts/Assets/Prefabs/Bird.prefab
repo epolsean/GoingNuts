@@ -125,6 +125,8 @@ GameObject:
   - 54: {fileID: 5439402}
   - 65: {fileID: 6556088}
   - 114: {fileID: 11456088}
+  - 65: {fileID: 6543032}
+  - 114: {fileID: 11443032}
   m_Layer: 0
   m_Name: Cage
   m_TagString: Untagged
@@ -795,7 +797,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.6000004, y: 4.80000019, z: -28.3999996}
+  m_LocalPosition: {x: -10.7708416, y: 10.9105339, z: -38.552227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440290}
@@ -808,7 +810,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 27.2000008, z: 12.3000002}
+  m_LocalPosition: {x: 11, y: 27.2000008, z: 12.3000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 474478}
@@ -823,7 +825,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.2000008, y: 0, z: 25.1000004}
+  m_LocalPosition: {x: 7.69999981, y: 0, z: -6.69999981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440288}
@@ -2374,6 +2376,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6543032
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .800000012, y: .800000012, z: .800000012}
+  m_Center: {x: 0, y: -.600000024, z: 0}
 --- !u!65 &6556088
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2398,7 +2412,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -2471,7 +2485,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -2617,7 +2631,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -2735,8 +2749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatePoint: {fileID: 140286}
-  speed: 6
-  playerFound: 1
+  speed: 8
+  playerFound: 0
 --- !u!114 &11440288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2749,8 +2763,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatePoint: {fileID: 140290}
-  speed: 9
-  playerFound: 1
+  speed: 12
+  playerFound: 0
 --- !u!114 &11440290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2759,12 +2773,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 140284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684d11d201946764ab76f9d5ebf4d156, type: 3}
+  m_Script: {fileID: 11500000, guid: f02d4f7fd18afa843b6f68bd77144ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   Joint1: {fileID: 140290}
   Joint2: {fileID: 140288}
+  MazeChopper: {fileID: 0}
   Cage: {fileID: 174480}
   Chopper: {fileID: 174478}
   screenFade1: {fileID: 0}
@@ -2774,6 +2789,23 @@ MonoBehaviour:
   beginFade1: 0
   beginFade2: 0
   stopFade: 0
+  fadeSpeed: 5
+--- !u!114 &11443032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd98cd3cfdf4c134994aa4ae8e91ab78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Chopper: {fileID: 174478}
+  EnemyZone: {fileID: 140284}
+  captured: 0
+  landed: 0
+  reset: 0
 --- !u!114 &11456088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2787,6 +2819,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Chopper: {fileID: 174478}
   EnemyZone: {fileID: 140284}
+  captured: 0
+  landed: 0
+  reset: 0
 --- !u!119 &11958536
 Projector:
   m_ObjectHideFlags: 1

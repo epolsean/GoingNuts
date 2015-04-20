@@ -7,6 +7,7 @@ public class QuadEnemyScript : MonoBehaviour {
     public GameObject spawnPoint;
     public GameObject Joint1;
     public GameObject Joint2;
+    public GameObject MazeChopper;
     public GameObject Cage;
     public GameObject Chopper;
     public Image screenFade1;
@@ -20,16 +21,23 @@ public class QuadEnemyScript : MonoBehaviour {
 
     public float fadeSpeed = 1;
     bool resetting = false;
+    float randomStart;
 
     void Start ()
     {
         screenFade1.enabled = false;
         screenFade2.enabled = false;
+        randomStart = Random.Range(0.0f, 5.0f) + Time.time;
     }
 	
 	// Update is called once per frame
 	void Update () 
 	{
+        if (Time.time - randomStart >= 0 && Time.time - randomStart < .1f)
+        {
+            Animator anim = Chopper.GetComponent<Animator>();
+            anim.Play(0);
+        }
         resetting = Cage.GetComponent<CageScript>().reset;
 		if(beginFade1 && Time.time - startTime >= 1)
 		{
@@ -73,8 +81,13 @@ public class QuadEnemyScript : MonoBehaviour {
         {
             Animator anim = Chopper.GetComponent<Animator>();
             anim.SetBool("CageDropped", true);
-            Joint1.GetComponent<enemyRotate>().playerFound = true;
-            Joint2.GetComponent<enemyRotate>().playerFound = true;
+            if (gameObject.tag == "MazeChopper")
+                MazeChopper.GetComponent<enemyPatrol>().playerFound = true;
+            else
+            {
+                Joint1.GetComponent<enemyRotate>().playerFound = true;
+                Joint2.GetComponent<enemyRotate>().playerFound = true;
+            }
             Cage.GetComponent<Rigidbody>().useGravity = true;
         }
     }
@@ -85,17 +98,24 @@ public class QuadEnemyScript : MonoBehaviour {
         {
             Animator anim = Chopper.GetComponent<Animator>();
             anim.SetBool("CageDropped", true);
-            Joint1.GetComponent<enemyRotate>().playerFound = true;
-            Joint2.GetComponent<enemyRotate>().playerFound = true;
+            if (gameObject.tag == "MazeChopper")
+                MazeChopper.GetComponent<enemyPatrol>().playerFound = true;
+            else
+            {
+                Joint1.GetComponent<enemyRotate>().playerFound = true;
+                Joint2.GetComponent<enemyRotate>().playerFound = true;
+            }
         }
     }
 
-    void OnTriggerExit(Collider other)
+    public void Resume()
     {
-        if (other.gameObject.tag == "Player" && Joint1.GetComponent<enemyRotate>().playerFound == true && Joint2.GetComponent<enemyRotate>().playerFound == true)
+        if (gameObject.tag == "MazeChopper")
+            MazeChopper.GetComponent<enemyPatrol>().playerFound = false;
+        else
         {
-            //Joint1.GetComponent<enemyRotate>().playerFound = false;
-            //Joint2.GetComponent<enemyRotate>().playerFound = false;
+            Joint1.GetComponent<enemyRotate>().playerFound = false;
+            Joint2.GetComponent<enemyRotate>().playerFound = false;
         }
     }
 
