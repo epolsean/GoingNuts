@@ -19,9 +19,6 @@ public class ChopperSoundRandomStart : MonoBehaviour {
 		{
 			played = true;
 			audio.Play();
-			print (currentTime);
-			print (Time.time);
-			print (randNum);
 		}
 	
 	}

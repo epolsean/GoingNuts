@@ -19,11 +19,21 @@ var inputMoveDirection : Vector3 = Vector3.zero;
 @System.NonSerialized
 var inputJump : boolean = false;
 
+@System.NonSerialized
+var inputSprint : boolean = false;
+
 class CharacterMotorMovement {
 	// The maximum horizontal speed when moving
 	var maxForwardSpeed : float = 10.0;
 	var maxSidewaysSpeed : float = 10.0;
 	var maxBackwardsSpeed : float = 10.0;
+	
+	@System.NonSerialized
+	var origMaxForwardSpeed = maxForwardSpeed;
+	@System.NonSerialized
+	var origMaxSidewaysSpeed = maxSidewaysSpeed;
+	@System.NonSerialized
+	var origMaxBackwardsSpeed = maxBackwardsSpeed;
 	
 	// Curve for multiplying speed based on slope (negative = downwards)
 	var slopeSpeedMultiplier : AnimationCurve = AnimationCurve(Keyframe(-90, 1), Keyframe(0, 1), Keyframe(90, 0));
@@ -175,9 +185,15 @@ private var tr : Transform;
 
 private var controller : CharacterController;
 
+
+
 function Awake () {
 	controller = GetComponent (CharacterController);
 	tr = transform;
+
+	movement.origMaxForwardSpeed = movement.maxForwardSpeed;
+	movement.origMaxBackwardsSpeed = movement.maxBackwardsSpeed;
+	movement.origMaxSidewaysSpeed = movement.maxSidewaysSpeed;
 }
 
 private function UpdateFunction () {
@@ -189,6 +205,8 @@ private function UpdateFunction () {
 	
 	// Apply gravity and jumping force
 	velocity = ApplyGravityAndJumping (velocity);
+	
+	ApplySprinting();
 	
 	// Moving platform support
 	var moveDistance : Vector3 = Vector3.zero;
@@ -333,6 +351,16 @@ function FixedUpdate () {
 
 function Update () {
 	transform.position += Vector3.zero;
+	
+	if(Input.GetKeyDown(KeyCode.LeftShift))
+	{
+		inputSprint = true;
+	}
+	if(Input.GetKeyUp(KeyCode.LeftShift))
+	{
+		inputSprint = false;
+	}
+	
 	if (!useFixedUpdate)
 		UpdateFunction();
 }
@@ -385,6 +413,26 @@ private function ApplyInputVelocityChange (velocity : Vector3) {
 	}
 	
 	return velocity;
+}
+@System.NonSerialized
+var movementChanged = false;
+
+private function ApplySprinting()
+{
+	if(inputSprint && !movementChanged)
+	{
+		movement.maxForwardSpeed = movement.origMaxForwardSpeed * 1.5;
+		movement.maxSidewaysSpeed = movement.origMaxSidewaysSpeed * 1.5;
+		movement.maxBackwardsSpeed = movement.origMaxBackwardsSpeed * 1.5;
+		movementChanged = true;
+	}
+	else if(!inputSprint)
+	{
+		movementChanged = false;
+		movement.maxForwardSpeed = movement.origMaxForwardSpeed;
+		movement.maxSidewaysSpeed = movement.origMaxSidewaysSpeed;
+		movement.maxBackwardsSpeed = movement.origMaxBackwardsSpeed;
+	}
 }
 
 private function ApplyGravityAndJumping (velocity : Vector3) {
