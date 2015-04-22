@@ -130,8 +130,6 @@ GameObject:
   - 54: {fileID: 5472816}
   - 65: {fileID: 6572816}
   - 114: {fileID: 11472816}
-  - 65: {fileID: 6572820}
-  - 114: {fileID: 11472818}
   m_Layer: 0
   m_Name: Cage
   m_TagString: Untagged
@@ -2210,18 +2208,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6572820
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172830}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .800000012, y: .800000012, z: .800000012}
-  m_Center: {x: 0, y: -.600000024, z: 0}
 --- !u!95 &9572816
 Animator:
   serializedVersion: 3
@@ -2263,23 +2249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd98cd3cfdf4c134994aa4ae8e91ab78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Chopper: {fileID: 0}
-  EnemyZone: {fileID: 0}
-  captured: 0
-  landed: 0
-  reset: 0
---- !u!114 &11472818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd98cd3cfdf4c134994aa4ae8e91ab78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Chopper: {fileID: 0}
+  Chopper: {fileID: 172892}
   EnemyZone: {fileID: 0}
   captured: 0
   landed: 0
