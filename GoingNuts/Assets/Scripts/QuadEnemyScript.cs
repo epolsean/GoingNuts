@@ -38,7 +38,7 @@ public class QuadEnemyScript : MonoBehaviour {
             Animator anim = Chopper.GetComponent<Animator>();
             anim.Play(0);
         }
-        resetting = Cage.GetComponent<CageScript>().reset;
+        resetting = Cage.GetComponent<CageScript1>().reset;
 		if(beginFade1 && Time.time - startTime >= 1)
 		{
 			FadeToClear();
@@ -67,7 +67,7 @@ public class QuadEnemyScript : MonoBehaviour {
             player.transform.position = spawnPoint.transform.position;
             player.transform.rotation = spawnPoint.transform.rotation;
             player.GetComponent<CharacterController>().enabled = false;
-            Cage.GetComponent<CageScript>().captured = false;
+            Cage.GetComponent<CageScript1>().captured = false;
             startTime = Time.time;
             screenFade1.enabled = true;
             screenFade2.enabled = true;
@@ -88,7 +88,10 @@ public class QuadEnemyScript : MonoBehaviour {
                 Joint1.GetComponent<enemyRotate>().playerFound = true;
                 Joint2.GetComponent<enemyRotate>().playerFound = true;
             }
-            Cage.GetComponent<Rigidbody>().useGravity = true;
+			if(Cage.GetComponent<CageScript1>().canMove)
+			{
+            	Cage.GetComponent<Rigidbody>().useGravity = true;
+			}
         }
     }
 
@@ -105,6 +108,10 @@ public class QuadEnemyScript : MonoBehaviour {
                 Joint1.GetComponent<enemyRotate>().playerFound = true;
                 Joint2.GetComponent<enemyRotate>().playerFound = true;
             }
+			if(Cage.GetComponent<CageScript1>().canMove)
+			{
+				Cage.GetComponent<Rigidbody>().useGravity = true;
+			}
         }
     }
 
@@ -112,7 +119,7 @@ public class QuadEnemyScript : MonoBehaviour {
     {
         if (gameObject.tag == "MazeChopper")
             MazeChopper.GetComponent<enemyPatrol>().playerFound = false;
-        else
+		else if(Cage.GetComponent<CageScript1>().canMove)
         {
             Joint1.GetComponent<enemyRotate>().playerFound = false;
             Joint2.GetComponent<enemyRotate>().playerFound = false;

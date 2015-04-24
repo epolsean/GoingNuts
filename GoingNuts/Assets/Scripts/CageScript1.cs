@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CageScript : MonoBehaviour {
+public class CageScript1 : MonoBehaviour {
 
     public GameObject Chopper;
     public GameObject EnemyZone;
     public bool captured;
     public bool landed;
     public bool reset;
+	public bool canMove = true;
 
     Vector3 oldPos = new Vector3(0,0,0);
     Vector3 startPos;
@@ -15,58 +16,25 @@ public class CageScript : MonoBehaviour {
     float startTime;
     public bool onlyOnce;
 
+
 	// Use this for initialization
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		// if moving update oldPos, or cage dropping
-		//if(gameObject.GetComponent<Rigidbody>().useGravity == true)
-		//{
-			if (oldPos != transform.position/* && Mathf.Abs(transform.position.y - 6) > 0.01f*/)
-	        {
-	            oldPos = transform.position;
-	        }
-			// if stopped, and cage landed
-	        else if(onlyOnce == false)
-	        {
-	            //gameObject.GetComponent<Rigidbody>().useGravity = false;
-	            endPos = transform.localPosition;
-	            //startTime = Time.time;
-	            //landed = true;
-	            onlyOnce = true;
-	        }
-		//}
 
-        if (landed && !captured)
+		if (oldPos != transform.position)
         {
-			print ("endPos " + endPos.y);
-			startPos.x = endPos.x;
-			startPos.z = endPos.z;
-
-            reset = true;
-			//print("StartTime " + startTime);
-
-            float fracTime = (Time.time - startTime)/4;
-			print ("fracTime " + fracTime);
-            //transform.localPosition = Vector3.Lerp(endPos, new Vector3(endPos.x, 10, endPos.z), fracTime);
-			transform.localPosition = Vector3.Lerp(startPos, new Vector3(endPos.x, 10, endPos.z), fracTime);
-
-			//print ("lerping?");
-			//print (transform.localPosition.y);
-
-            if (transform.localPosition.y >= 9.99f && transform.localPosition.y < 10.01f)
-            {
-                Animator anim = Chopper.GetComponent<Animator>();
-                anim.SetBool("CageDropped", false);
-                EnemyZone.GetComponent<QuadEnemyScript>().Resume();
-                reset = false;
-                //landed = false;
-                onlyOnce = false;
-				landed = false;
-            }
+            oldPos = transform.position;
         }
+		// if stopped, and cage landed
+        else if(onlyOnce == false)
+        {
+            endPos = transform.localPosition;
+            onlyOnce = true;
+        }
+
 		if(oldPos.y != transform.position.y && landed == false) //
 		{
 			landed = true;
@@ -75,6 +43,38 @@ public class CageScript : MonoBehaviour {
 			print (startPos.y);
 			print ("stuff happened");
 			startTime = Time.time;
+		}
+        if (landed && !captured)
+        {
+			print ("endPos " + endPos.y);
+			startPos.x = endPos.x;
+			startPos.z = endPos.z;
+
+            reset = true;
+
+            float fracTime = (Time.time - startTime)/4;
+
+			transform.localPosition = Vector3.Lerp(startPos, new Vector3(endPos.x, 10, endPos.z), fracTime);
+
+            if (transform.localPosition.y >= 9.99f && transform.localPosition.y < 10.01f)
+            {
+                Animator anim = Chopper.GetComponent<Animator>();
+                anim.SetBool("CageDropped", false);
+                EnemyZone.GetComponent<QuadEnemyScript>().Resume();
+                reset = false;
+                onlyOnce = false;
+				landed = false;
+            }
+        }
+		if (transform.localPosition.y >= 9.99f && transform.localPosition.y < 10.01f)
+		{
+			canMove = true;
+			EnemyZone.GetComponent<QuadEnemyScript>().Resume();
+			onlyOnce = false;
+		}
+		else
+		{
+			canMove = false;
 		}
 	}
 

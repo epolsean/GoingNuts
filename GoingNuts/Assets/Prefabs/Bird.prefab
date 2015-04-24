@@ -795,7 +795,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -115.300003, y: 10.8999996, z: 11.3000002}
+  m_LocalPosition: {x: -10.7708416, y: 10.9105339, z: -38.552227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440290}
@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 174480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd98cd3cfdf4c134994aa4ae8e91ab78, type: 3}
+  m_Script: {fileID: 11500000, guid: 53159ef30a7f05048975a19a61ab3005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Chopper: {fileID: 174478}
@@ -2792,6 +2792,8 @@ MonoBehaviour:
   captured: 0
   landed: 0
   reset: 0
+  canMove: 1
+  onlyOnce: 0
 --- !u!119 &11958536
 Projector:
   m_ObjectHideFlags: 1
