@@ -29,24 +29,26 @@ public class CageScript : MonoBehaviour {
             oldPos = transform.position;
         }
 		// if stopped, and cage landed
-        else if(onlyOnce == false)
+        /*else if(onlyOnce == false)
         {
             endPos = transform.localPosition;
             onlyOnce = true;
-        }
+        }*/
 
 		if(oldPos.y != transform.position.y && landed == false) //
 		{
 			landed = true;
 			gameObject.GetComponent<Rigidbody>().useGravity = false; //
 			startPos.y = transform.localPosition.y;
-			print (startPos.y);
-			print ("stuff happened");
 			startTime = Time.time;
+			if(onlyOnce == false)
+			{
+				endPos = transform.localPosition;
+				onlyOnce = true;
+			}
 		}
         if (landed && !captured)
         {
-			print ("endPos " + endPos.y);
 			startPos.x = endPos.x;
 			startPos.z = endPos.z;
 
