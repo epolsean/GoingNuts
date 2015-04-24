@@ -8,12 +8,14 @@ public class CageScript : MonoBehaviour {
     public bool captured;
     public bool landed;
     public bool reset;
+	public bool canMove = true;
 
     Vector3 oldPos = new Vector3(0,0,0);
     Vector3 startPos;
     Vector3 endPos;
     float startTime;
-    bool onlyOnce;
+    public bool onlyOnce;
+
 
 	// Use this for initialization
 	void Start () {
@@ -21,33 +23,59 @@ public class CageScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (oldPos != transform.position)
+
+		if (oldPos != transform.position)
         {
             oldPos = transform.position;
         }
+		// if stopped, and cage landed
         else if(onlyOnce == false)
         {
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
             endPos = transform.localPosition;
-            startTime = Time.time;
-            landed = true;
             onlyOnce = true;
         }
+
+		if(oldPos.y != transform.position.y && landed == false) //
+		{
+			landed = true;
+			gameObject.GetComponent<Rigidbody>().useGravity = false; //
+			startPos.y = transform.localPosition.y;
+			print (startPos.y);
+			print ("stuff happened");
+			startTime = Time.time;
+		}
         if (landed && !captured)
         {
+			print ("endPos " + endPos.y);
+			startPos.x = endPos.x;
+			startPos.z = endPos.z;
+
             reset = true;
+
             float fracTime = (Time.time - startTime)/4;
-            transform.localPosition = Vector3.Lerp(endPos, new Vector3(endPos.x, 10, endPos.z), fracTime);
+
+			transform.localPosition = Vector3.Lerp(startPos, new Vector3(endPos.x, 10, endPos.z), fracTime);
+
             if (transform.localPosition.y >= 9.99f && transform.localPosition.y < 10.01f)
             {
                 Animator anim = Chopper.GetComponent<Animator>();
                 anim.SetBool("CageDropped", false);
                 EnemyZone.GetComponent<QuadEnemyScript>().Resume();
                 reset = false;
-                landed = false;
                 onlyOnce = false;
+				landed = false;
             }
         }
+		if (transform.localPosition.y >= 9.99f && transform.localPosition.y < 10.01f)
+		{
+			canMove = true;
+			EnemyZone.GetComponent<QuadEnemyScript>().Resume();
+			onlyOnce = false;
+		}
+		else
+		{
+			canMove = false;
+		}
 	}
 
     void OnTriggerEnter(Collider other)
