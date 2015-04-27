@@ -122,6 +122,7 @@ GameObject:
   - 114: {fileID: 11436408}
   - 54: {fileID: 5436408}
   - 82: {fileID: 8258950}
+  - 205: {fileID: 20541756}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Pickup
@@ -363,6 +364,7 @@ GameObject:
   - 114: {fileID: 11436410}
   - 54: {fileID: 5436410}
   - 82: {fileID: 8276438}
+  - 205: {fileID: 20541752}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Pickup
@@ -384,6 +386,7 @@ GameObject:
   - 114: {fileID: 11436412}
   - 54: {fileID: 5436412}
   - 82: {fileID: 8288458}
+  - 205: {fileID: 20541754}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Pickup
@@ -638,7 +641,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 13.2600002, y: 0, z: 2}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children:
   - {fileID: 436372}
@@ -832,7 +835,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 16.25, y: 0, z: 21.8999996}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children:
   - {fileID: 436364}
@@ -848,7 +851,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -5.67999983, y: 0, z: -8.56999969}
   m_LocalScale: {x: .25, y: .25, z: .25}
   m_Children:
   - {fileID: 436380}
@@ -978,8 +981,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150944}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: .382683486, z: 0, w: .923879564}
+  m_LocalPosition: {x: -142.479996, y: 384.089996, z: -122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 436400}
@@ -4785,6 +4788,63 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+--- !u!205 &20541752
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136402}
+  m_LocalReferencePoint: {x: 0, y: -.0348629951, z: -3.05175781e-05}
+  m_Size: 23.721096
+  m_ScreenRelativeTransitionHeight: 0
+  m_LODs:
+  - screenRelativeHeight: .245225564
+    renderers:
+    - renderer: {fileID: 2336408}
+    - renderer: {fileID: 2336412}
+    - renderer: {fileID: 19936412}
+  - screenRelativeHeight: .0979214683
+    renderers:
+    - renderer: {fileID: 2336412}
+  m_Enabled: 1
+--- !u!205 &20541754
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136404}
+  m_LocalReferencePoint: {x: -3.05175781e-05, y: -.0348629951, z: -3.05175781e-05}
+  m_Size: 23.721096
+  m_ScreenRelativeTransitionHeight: 0
+  m_LODs:
+  - screenRelativeHeight: .24773933
+    renderers:
+    - renderer: {fileID: 2336410}
+    - renderer: {fileID: 2350944}
+    - renderer: {fileID: 19936408}
+  - screenRelativeHeight: .102732427
+    renderers:
+    - renderer: {fileID: 2350944}
+  m_Enabled: 1
+--- !u!205 &20541756
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136372}
+  m_LocalReferencePoint: {x: 0, y: -.0348629951, z: 0}
+  m_Size: 23.721096
+  m_ScreenRelativeTransitionHeight: 0
+  m_LODs:
+  - screenRelativeHeight: .24773933
+    renderers:
+    - renderer: {fileID: 2336406}
+    - renderer: {fileID: 2336404}
+    - renderer: {fileID: 19936410}
+  - screenRelativeHeight: .101115957
+    renderers:
+    - renderer: {fileID: 2336404}
+  m_Enabled: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
