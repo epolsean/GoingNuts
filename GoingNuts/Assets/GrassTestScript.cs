@@ -6,52 +6,95 @@ public class GrassTestScript : MonoBehaviour
 	public GameObject cutGrass;
 	public GameObject loneGrass;
 	public GameObject bigGrass;
-
+	
+	// These should add up to 100
+	// blankSpace doesn't actually matter, it's chance is based on whatever is leftover from the other 3
 	public int cutChance = 80;
 	public int loneChance = 10;
 	public int bigChance = 5;
 	public int blankSpace = 5;
-
-	//Instantiate(Object original, Vector3 position, Quaternion rotation);
+	
+	// This is the terrain that you want the grass to conform to
+	public Terrain terrain;
+	
+	
+	
 	// Use this for initialization
 	void Start () 
 	{
+		// Using the localScale to get the size of the cube area of the grass zone
 		float areaSizeX = transform.localScale.x;
 		float areaSizeZ = transform.localScale.z;
-
-		//Quaternion rotation = transform.Rotate (0, 0, 0);
-
-		for(int x = 0; x < areaSizeX * 2; x++)
+		
+		// Will contain the position of each grass object
+		Vector3 grassVector = new Vector3 (0, 0, 0);
+		
+		// Create as GameObject for parenting
+		GameObject grass;
+		
+		
+		for(float x = 0; x < areaSizeX * 2; x++)
 		{
-			for(int z = 0; z < areaSizeZ * 2; z++)
+			for(float z = 0; z < areaSizeZ * 2; z++)
 			{
-				float randNum = Random.Range(0F, 100F);
-				 
+				float randNum = Random.Range(0F, 100F); // For calculating chance for each type of grass
+				Quaternion randomRotation = Quaternion.Euler (0, Random.Range(0F, 360F), 0); // For creating random rotations
+				
 				// cut grass chance
 				if(randNum <= cutChance)
 				{
-					Instantiate(cutGrass, new Vector3 (transform.position.x + x/4 - areaSizeX/2, 0, transform.position.z + z/4 - areaSizeZ/2), Quaternion.identity);
-					print (1);
+					// The x and z positions for the grass
+					grassVector.x = transform.position.x + x/2 - areaSizeX/2;
+					grassVector.z = transform.position.z + z/2 - areaSizeZ/2;
+					
+					// Uses Terrain.SampleHeight to approximate the y location for the grass
+					grassVector.y = terrain.SampleHeight (grassVector) + terrain.GetPosition().y;
+					
+					// Instantiates the grass as a gameObject
+					grass = Instantiate(cutGrass, grassVector, randomRotation) as GameObject;
+					
+					// Sets the parent to be the object this script is attached to
+					grass.transform.SetParent(this.transform, true);
 				}
 				// lone grass chance
 				else if(randNum > cutChance && randNum <= cutChance + loneChance)
 				{
-					Instantiate(loneGrass, new Vector3 (transform.position.x + x/4 - areaSizeX/2, 0, transform.position.z + z/4 - areaSizeZ/2), Quaternion.identity);
-					print (2);
+					// The x and z positions for the grass
+					grassVector.x = transform.position.x + x/2 - areaSizeX/2;
+					grassVector.z = transform.position.z + z/2 - areaSizeZ/2;
+					
+					// Uses Terrain.SampleHeight to approximate the y location for the grass
+					grassVector.y = terrain.SampleHeight (grassVector) + terrain.GetPosition().y;
+					
+					// Instantiates the grass as a gameObject
+					grass = Instantiate(loneGrass, grassVector, randomRotation) as GameObject;
+					
+					// Sets the parent to be the object this script is attached to
+					grass.transform.SetParent(this.transform, true);
 				}
 				else if(randNum > cutChance + loneChance && randNum <= 100 - bigChance)
 				{
-					Instantiate(bigGrass, new Vector3 (transform.position.x + x/4 - areaSizeX/2, 0, transform.position.z + z/4 - areaSizeZ/2), Quaternion.identity);
-					print (3);
+					// The x and z positions for the grass
+					grassVector.x = transform.position.x + x/2 - areaSizeX/2;
+					grassVector.z = transform.position.z + z/2 - areaSizeZ/2;
+					
+					// Uses Terrain.SampleHeight to approximate the y location for the grass
+					grassVector.y = terrain.SampleHeight (grassVector) + terrain.GetPosition().y;
+					
+					// Instantiates the grass as a gameObject
+					grass = Instantiate(bigGrass, grassVector, randomRotation) as GameObject;
+					
+					// Sets the parent to be the object this script is attached to
+					grass.transform.SetParent(this.transform, true);
 				}//else blank
 			}
 		}
-
-
+		
+		
 		/*float randNum = Random.Range(0F, 360F);
 		transform.Rotate(0, randNum, 0);*/
-
-
+		
+		
 	}
-
+	
 }
