@@ -14,7 +14,7 @@ GameObject:
   - 205: {fileID: 20527298}
   m_Layer: 0
   m_Name: Grass Blade
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127298}
   m_LocalRotation: {x: .0796242952, y: .937393785, z: -.0339668393, w: .337341458}
-  m_LocalPosition: {x: -.629999995, y: 0, z: .620000005}
+  m_LocalPosition: {x: 21.042963, y: -2.51983916e-15, z: 113.483459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +83,7 @@ LODGroup:
   m_Size: 1.39098096
   m_ScreenRelativeTransitionHeight: 0
   m_LODs:
-  - screenRelativeHeight: .0589275658
+  - screenRelativeHeight: .055396039
     renderers:
     - renderer: {fileID: 2327298}
   m_Enabled: 1

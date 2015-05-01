@@ -9,10 +9,10 @@ public class GrassTestScript : MonoBehaviour
 	
 	// These should add up to 100
 	// blankSpace doesn't actually matter, it's chance is based on whatever is leftover from the other 3
-	public int cutChance = 80;
-	public int loneChance = 10;
-	public int bigChance = 5;
-	public int blankSpace = 5;
+	public float cutChance = 80;
+	public float loneChance = 10;
+	public float bigChance = 5;
+	public float blankSpace;
 	
 	// This is the terrain that you want the grass to conform to
 	public Terrain terrain;
@@ -22,6 +22,7 @@ public class GrassTestScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		blankSpace = 100 - cutChance - loneChance - bigChance;
 		// Using the localScale to get the size of the cube area of the grass zone
 		float areaSizeX = transform.localScale.x;
 		float areaSizeZ = transform.localScale.z;
@@ -72,7 +73,7 @@ public class GrassTestScript : MonoBehaviour
 					// Sets the parent to be the object this script is attached to
 					grass.transform.SetParent(this.transform, true);
 				}
-				else if(randNum > cutChance + loneChance && randNum <= 100 - bigChance)
+				else if(randNum > cutChance + loneChance && randNum <= 100 - blankSpace)
 				{
 					// The x and z positions for the grass
 					grassVector.x = transform.position.x + x/2 - areaSizeX/2;
@@ -88,13 +89,6 @@ public class GrassTestScript : MonoBehaviour
 					grass.transform.SetParent(this.transform, true);
 				}//else blank
 			}
-		}
-		
-		
-		/*float randNum = Random.Range(0F, 360F);
-		transform.Rotate(0, randNum, 0);*/
-		
-		
+		}		
 	}
-	
 }

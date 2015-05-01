@@ -69,8 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutGrass: {fileID: 127298, guid: f9d44191e091a8545987a625b0ee3eb6, type: 2}
-  loneGrass: {fileID: 100000, guid: ee010c691fc5f9e44a002f054d415511, type: 3}
-  bigGrass: {fileID: 100000, guid: 0cd80a771e358c04a8ccba3a758cec82, type: 3}
+  loneGrass: {fileID: 133222, guid: 3e68bb45bdb5adb4e9a94976397b04fe, type: 2}
+  bigGrass: {fileID: 121720, guid: 7635ce2aece061a49a32e592c60cf4d2, type: 2}
   cutChance: 80
   loneChance: 10
   bigChance: 5
