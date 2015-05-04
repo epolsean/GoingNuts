@@ -9,9 +9,14 @@ public class GoToScript : MonoBehaviour {
     public GameObject Achievements;
     public GameObject Highscores;
     public GameObject Credits;
+    public GameObject Settings;
     public GameObject CheckReset;
     public GameObject CheckQuit;
 
+    void Start()
+    {
+        PlayerPrefs.SetInt("view_mode", 0);
+    }
 
     public void mainMenu()
     {
@@ -23,6 +28,7 @@ public class GoToScript : MonoBehaviour {
         MainMenu.SetActive(true);
         Extras.SetActive(false);
         CheckQuit.SetActive(false);
+        Settings.SetActive(false);
     }
 
     public void loading()
@@ -43,7 +49,9 @@ public class GoToScript : MonoBehaviour {
 
     public void settings()
     {
-
+        Settings.SetActive(true);
+        MainMenu.SetActive(false);
+        Extras.SetActive(false);
     }
 
     public void extras()
@@ -54,6 +62,7 @@ public class GoToScript : MonoBehaviour {
         Highscores.SetActive(false);
         Credits.SetActive(false);
         MainMenu.SetActive(false);
+        Settings.SetActive(false);
     }
 
     public void credits()
@@ -82,6 +91,14 @@ public class GoToScript : MonoBehaviour {
     public void checkReset()
     {
         CheckReset.SetActive(true);
+    }
+
+    public void switchViews()
+    {
+        if(PlayerPrefs.GetInt("view_mode") == 1)
+            PlayerPrefs.SetInt("view_mode", 0);
+        else
+            PlayerPrefs.SetInt("view_mode", 1);
     }
 
     public void quit()
