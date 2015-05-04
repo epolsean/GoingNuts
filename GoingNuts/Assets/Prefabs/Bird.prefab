@@ -795,7 +795,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.7708416, y: 10.9105339, z: -38.552227}
+  m_LocalPosition: {x: 70.5999985, y: 4.80000019, z: -44.2999992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440290}
@@ -2759,13 +2759,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 140284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f02d4f7fd18afa843b6f68bd77144ad8, type: 3}
+  m_Script: {fileID: 11500000, guid: d4d3a3f6b08bcd74295acc1dd3447df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   Joint1: {fileID: 140290}
   Joint2: {fileID: 140288}
-  MazeChopper: {fileID: 0}
   Cage: {fileID: 174480}
   Chopper: {fileID: 174478}
   screenFade1: {fileID: 0}
@@ -2784,16 +2783,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 174480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53159ef30a7f05048975a19a61ab3005, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cf467a7f2004ec4d928991c2ad6ded5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Chopper: {fileID: 174478}
   EnemyZone: {fileID: 140284}
+  CageCollider: {fileID: 6539402}
   captured: 0
   landed: 0
   reset: 0
-  canMove: 1
-  onlyOnce: 0
+  fixedHeight: 0
 --- !u!119 &11958536
 Projector:
   m_ObjectHideFlags: 1
