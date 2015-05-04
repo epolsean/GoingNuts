@@ -6,6 +6,7 @@ public class GrassTestScript : MonoBehaviour
 	public GameObject cutGrass;
 	public GameObject loneGrass;
 	public GameObject bigGrass;
+	public GameObject grassParent;
 	
 	// These should add up to 100
 	// blankSpace doesn't actually matter, it's chance is based on whatever is leftover from the other 3
@@ -55,7 +56,7 @@ public class GrassTestScript : MonoBehaviour
 					grass = Instantiate(cutGrass, grassVector, randomRotation) as GameObject;
 					
 					// Sets the parent to be the object this script is attached to
-					grass.transform.SetParent(this.transform, true);
+					grass.transform.SetParent(grassParent.transform, true);
 				}
 				// lone grass chance
 				else if(randNum > cutChance && randNum <= cutChance + loneChance)
@@ -71,7 +72,7 @@ public class GrassTestScript : MonoBehaviour
 					grass = Instantiate(loneGrass, grassVector, randomRotation) as GameObject;
 					
 					// Sets the parent to be the object this script is attached to
-					grass.transform.SetParent(this.transform, true);
+					grass.transform.SetParent(grassParent.transform, true);
 				}
 				else if(randNum > cutChance + loneChance && randNum <= 100 - blankSpace)
 				{
@@ -86,7 +87,7 @@ public class GrassTestScript : MonoBehaviour
 					grass = Instantiate(bigGrass, grassVector, randomRotation) as GameObject;
 					
 					// Sets the parent to be the object this script is attached to
-					grass.transform.SetParent(this.transform, true);
+					grass.transform.SetParent(grassParent.transform, true);
 				}//else blank
 			}
 		}		
