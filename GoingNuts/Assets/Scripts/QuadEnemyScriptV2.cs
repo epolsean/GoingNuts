@@ -89,6 +89,7 @@ public class QuadEnemyScriptV2 : MonoBehaviour {
             }
             Cage.GetComponent<CageScriptV2>().fixedHeight = false;
 			Cage.GetComponent<Rigidbody>().useGravity = true;
+            Cage.GetComponent<AudioSource>().Play();
         }
     }
 
