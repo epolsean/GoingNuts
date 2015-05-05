@@ -112,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -77.4100037, y: 1.5, z: 106.690002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 471518}
@@ -194,7 +194,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0bc22dcf5dca166469186b0a8bbad996, type: 2}
+  - {fileID: 2100000, guid: 0c70df64284a5e6428796475a0b89656, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -214,7 +214,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0bc22dcf5dca166469186b0a8bbad996, type: 2}
+  - {fileID: 2100000, guid: 0c70df64284a5e6428796475a0b89656, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -234,7 +234,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0bc22dcf5dca166469186b0a8bbad996, type: 2}
+  - {fileID: 2100000, guid: 0c70df64284a5e6428796475a0b89656, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -254,7 +254,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0bc22dcf5dca166469186b0a8bbad996, type: 2}
+  - {fileID: 2100000, guid: 0c70df64284a5e6428796475a0b89656, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -274,7 +274,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0bc22dcf5dca166469186b0a8bbad996, type: 2}
+  - {fileID: 2100000, guid: 0c70df64284a5e6428796475a0b89656, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -367,7 +367,7 @@ SphereCollider:
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13627000
 CapsuleCollider:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171518}
