@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour {
     public GameObject OcCanvas;
     public GameObject NormConvas;
     public GameObject FPSCam;
+    public GameObject OculusCam;
     
     float startTime;
     int seconds;
@@ -33,12 +34,12 @@ public class PlayerStats : MonoBehaviour {
 	void Update () {
         if (PlayerPrefs.GetInt("view_mode") == 1 && !OcCam.activeInHierarchy)
         {
-            OcCam.SetActive(true);
+            OculusCam.SetActive(true);
             FPSCam.SetActive(false);
         }
         else if (PlayerPrefs.GetInt("view_mode") == 0 && OcCam.activeInHierarchy)
         {
-            OcCam.SetActive(false);
+            OculusCam.SetActive(false);
             FPSCam.SetActive(true);
         }
         if (OcCam.activeInHierarchy && OcCamOn == false)
