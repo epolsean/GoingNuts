@@ -6,6 +6,9 @@ public class VolumeScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        AudioListener.volume = this.GetComponent<Slider>().value;
+        if (AudioListener.volume != this.GetComponent<Slider>().value)
+        {
+            AudioListener.volume = this.GetComponent<Slider>().value;
+        }
 	}
 }

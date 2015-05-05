@@ -12,11 +12,8 @@ public class GoToScript : MonoBehaviour {
     public GameObject Settings;
     public GameObject CheckReset;
     public GameObject CheckQuit;
-
-    void Start()
-    {
-        PlayerPrefs.SetInt("view_mode", 0);
-    }
+    public GameObject CheckGameQuit;
+    public GameObject PauseMenu;
 
     public void mainMenu()
     {
@@ -49,9 +46,28 @@ public class GoToScript : MonoBehaviour {
 
     public void settings()
     {
-        Settings.SetActive(true);
-        MainMenu.SetActive(false);
-        Extras.SetActive(false);
+        if (Application.loadedLevel == 0)
+        {
+            Settings.SetActive(true);
+            MainMenu.SetActive(false);
+            Extras.SetActive(false);
+            CheckQuit.SetActive(false);
+        }
+        else
+        {
+            Settings.SetActive(true);
+            PauseMenu.SetActive(false);
+            CheckQuit.SetActive(false);
+            CheckGameQuit.SetActive(false);
+        }
+    }
+
+    public void pause()
+    {
+        PauseMenu.SetActive(true);
+        Settings.SetActive(false);
+        CheckQuit.SetActive(false);
+        CheckGameQuit.SetActive(false);
     }
 
     public void extras()
@@ -86,6 +102,11 @@ public class GoToScript : MonoBehaviour {
     public void checkQuit()
     {
         CheckQuit.SetActive(true);
+    }
+
+    public void checkGameQuit()
+    {
+        CheckGameQuit.SetActive(true);
     }
 
     public void checkReset()
